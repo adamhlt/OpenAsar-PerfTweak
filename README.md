@@ -3,8 +3,6 @@
 
 **An open-source alternative of Discord desktop's `app.asar`**
 
----
-
 > ⚠️ **Disclaimer**
 >
 > This fork of **OpenAsar** is specifically maintained to **tweak and optimize Discord's performance**,  
@@ -14,8 +12,6 @@
 > certain changes are experimental and focused on **performance tuning and stability under heavy usage**.  
 >
 > Use it at your own discretion — this version is **not officially supported by the OpenAsar team**.
-
----
 
 ## Features
 - **:rocket: Startup Speed**: ~2x faster startup times (up to ~4x with experimental config)
