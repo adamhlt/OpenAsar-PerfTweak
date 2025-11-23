@@ -1,7 +1,21 @@
 # OpenAsar &nbsp;<sup><sub>/ˈoʊpən ʌsɑr/ &nbsp;*(o-pen as-are)*</sup></sub>
-![Nightly Status](https://github.com/GooseMod/OpenAsar/actions/workflows/nightly.yml/badge.svg) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)]([https://choosealicense.com/licenses/agpl/l](https://choosealicense.com/licenses/agpl-3.0/))
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)]([https://choosealicense.com/licenses/agpl-l](https://choosealicense.com/licenses/agpl-3.0/))
 
 **An open-source alternative of Discord desktop's `app.asar`**
+
+---
+
+> ⚠️ **Disclaimer**
+>
+> This fork of **OpenAsar** is specifically maintained to **tweak and optimize Discord's performance**,  
+> aiming to **reduce micro-stuttering, frame drops, and inconsistent CPU scheduling** observed in the official build.  
+>
+> While it keeps full compatibility with the original OpenAsar project,  
+> certain changes are experimental and focused on **performance tuning and stability under heavy usage**.  
+>
+> Use it at your own discretion — this version is **not officially supported by the OpenAsar team**.
+
+---
 
 ## Features
 - **:rocket: Startup Speed**: ~2x faster startup times (up to ~4x with experimental config)
@@ -17,7 +31,6 @@
 <br>
 
 ## [Install Guide](https://github.com/GooseMod/OpenAsar/wiki/Install-Guide)
-
 
 ## Config
 You can configure OpenAsar by clicking the "OpenAsar..." version info in the bottom of your settings sidebar, which will open the config window.
