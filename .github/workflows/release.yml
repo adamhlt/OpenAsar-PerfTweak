@@ -1,0 +1,55 @@
+name: Build ASAR Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ASAR tool
+        run: npm install -g @electron/asar
+
+      - name: Pack ASAR
+        run: asar pack src app.asar
+
+      - name: Delete Old Release and Tag
+        continue-on-error: true
+        run: |
+          gh release delete latest --yes --cleanup-tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create New Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Process Priority Normalization"
+          body: |
+            🔧 **What’s new**
+            This release introduces a core performance patch that normalizes CPU priority across all Discord processes (main, renderer, GPU, and utility). By ensuring every subprocess runs with a consistent "Normal" priority level, this update helps prevent micro-stuttering, frame drops, and inconsistent responsiveness in the Discord desktop client.
+
+            🚀 **Improvements**
+            * Forces normal priority (PRIORITY_NORMAL) for all detected Discord processes and subprocesses.
+            * Adds automatic scanning to detect and re-apply priority on new child processes.
+            * Integrates seamlessly with the original OpenAsar performance improvements.
+          files: app.asar
+          draft: false
+          prerelease: false
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
